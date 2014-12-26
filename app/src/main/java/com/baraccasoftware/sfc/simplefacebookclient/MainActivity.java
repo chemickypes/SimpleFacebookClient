@@ -20,14 +20,16 @@ import java.net.CookieManager;
 
 
 public class MainActivity extends Activity {
+    private MainFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fragment = new MainFragment();
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, fragment)
                     .commit();
         }
 
@@ -53,7 +55,10 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_reload) {
+            if(fragment!= null){
+                fragment.reloadWebView();
+            }
             return true;
         }
 
@@ -86,11 +91,11 @@ public class MainActivity extends Activity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class MainFragment extends Fragment {
 
         private WebView webView;
         private String url = "https://www.facebook.com";
-        public PlaceholderFragment() {
+        public MainFragment() {
         }
 
         @Override
@@ -105,6 +110,10 @@ public class MainActivity extends Activity {
 
 
             return rootView;
+        }
+
+        public void reloadWebView(){
+            if(webView!=null)webView.reload();
         }
     }
 }
