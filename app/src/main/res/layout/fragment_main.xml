@@ -4,7 +4,7 @@
     tools:context=".MainActivity$PlaceholderFragment">
 
 
-    <WebView
+    <com.baraccasoftware.sfc.simplefacebookclient.view.SFCWebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fwebView"/>
