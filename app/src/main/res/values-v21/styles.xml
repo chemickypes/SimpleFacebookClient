@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="AppTheme" parent="android:Theme.Material.Light">
+        <item name="android:actionBarStyle">@style/SFCActionBar</item>
+
+    </style>
+
+    <style name="SFCActionBar" parent="android:Widget.Material.ActionBar.Solid">
+        <item name="android:background">@color/blue_facebook</item>
+        <item name="android:titleTextStyle">@style/SFCActionBarTitleColor</item>
+    </style>
+
+    <style name="SFCActionBarTitleColor" parent="android:TextAppearance.Material.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
     </style>
 </resources>
